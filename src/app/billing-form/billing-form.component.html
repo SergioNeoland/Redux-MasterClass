@@ -1,0 +1,26 @@
+<h3>Datos Personales</h3>
+<form class="mt-5" [formGroup]="formBilling" novalidate>
+  <div class="form-group">
+    <label for="inputCreditCardNumber">Número tarjeta</label>
+    <input type="text" class="form-control" id="inputCreditCardNumber" placeholder="Introduce el número de la tarjeta" formControlName="creditCardNumber">
+    <div class="error" *ngIf="formBilling.controls.creditCardNumber.errors?.required && formBilling.controls.creditCardNumber.touched">
+      El número de la tarjeta es obligatorio  
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputFechaCaducidad">Fecha de Caducidad</label>
+    <input type="date" class="form-control" id="inputFechaCaducidad" placeholder="Introduce la fecha de caducidad" formControlName="fechaCaducidad">
+    <div class="error" *ngIf="formBilling.controls.fechaCaducidad.errors?.required && formBilling.controls.fechaCaducidad.touched">
+      El campo Fecha de Caducidad es obligatorio
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputNumControl">Número de control</label>
+    <input type="text" class="form-control" id="inputNumControl" placeholder="Introduce tu número de control" formControlName="numControl">
+    <div class="error" *ngIf="formBilling.controls.numControl.errors && formBilling.controls.numControl.touched">
+      El campo número de control es obligatorio y debe ser correcto
+    </div>
+  </div>  
+  <button (click)="handleClickAnterior()" class="btn btn-primary float-left" >Anterior</button>
+  <button (click)="handleClickEnviar()" class="btn btn-success float-right" [disabled]="!formBilling.valid">Enviar</button>
+</form>

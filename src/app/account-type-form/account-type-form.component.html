@@ -1,0 +1,50 @@
+<h3>Tipo de cuenta</h3>
+<div class="card-deck mb-3 text-center">
+  <div [ngClass]="{'card': true, 'mb-4': true, 'shadow-sm': true, 'card-selected': accountSelected===1}">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">Gratis</h4>
+    </div>
+    <div class="card-body">
+      <h1 class="card-title pricing-card-title">€0 <small class="text-muted">/ mes</small></h1>
+      <ul class="list-unstyled mt-3 mb-4">
+        <li>10 usuarios incluidos</li>
+        <li>2 GB de almacenamiento</li>
+        <li>Soporte por Mail</li>
+        <li>Acceso al centro de ayuda</li>
+      </ul>
+      <button type="button" (click)="handleSelectAccount(1)" class="btn btn-lg btn-block btn-primary" [hidden]="accountSelected===1">Selecciona esta cuenta</button>
+    </div>
+  </div>
+  <div [ngClass]="{'card': true, 'mb-4': true, 'shadow-sm': true, 'card-selected': accountSelected===2}">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">Pro</h4>
+    </div>
+    <div class="card-body">
+      <h1 class="card-title pricing-card-title">€15 <small class="text-muted">/ mes</small></h1>
+      <ul class="list-unstyled mt-3 mb-4">
+        <li>20 usuarios incluidos</li>
+        <li>10 GB de almacenamiento</li>
+        <li>Soporte prioritario por mail</li>
+        <li>Acceso al centro de ayuda</li>
+      </ul>
+      <button type="button" (click)="handleSelectAccount(2)" class="btn btn-lg btn-block btn-primary" [hidden]="accountSelected===2">Selecciona esta cuenta</button>
+    </div>
+  </div>
+  <div [ngClass]="{'card': true, 'mb-4': true, 'shadow-sm': true, 'card-selected': accountSelected===3}">
+    <div class="card-header">
+      <h4 class="my-0 font-weight-normal">Empresa</h4>
+    </div>
+    <div class="card-body">
+      <h1 class="card-title pricing-card-title">€29 <small class="text-muted">/ mes</small></h1>
+      <ul class="list-unstyled mt-3 mb-4">
+        <li>30 usuarios incluidos</li>
+        <li>15 GB de almacenamiento</li>
+        <li>Soporte telefónico y por mail</li>
+        <li>Acceso al centro de ayuda</li>
+      </ul>
+      <button type="button" (click)="handleSelectAccount(3)" class="btn btn-lg btn-block btn-primary" [hidden]="accountSelected===3">Selecciona esta cuenta</button>
+    </div>
+  </div>
+</div>
+<button (click)="handleClickAnterior()" class="btn btn-primary float-left">Anterior</button>
+<button (click)="handleClickSiguiente()" class="btn btn-success float-right" [disabled]="accountSelected===0">Siguiente</button>

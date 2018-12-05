@@ -1,0 +1,33 @@
+<h3>Datos Personales</h3>
+<form class="mt-5" [formGroup]="formPersonal" novalidate>
+  <div class="form-group">
+    <label for="inputNombre">Nombre</label>
+    <input type="text" class="form-control" id="inputNombre" placeholder="Introduce tu nombre" formControlName="nombre">
+    <div class="error" *ngIf="formPersonal.controls.nombre.errors?.required && formPersonal.controls.nombre.touched">
+      El campo nombre es obligatorio
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputApellidos">Apellidos</label>
+    <input type="text" class="form-control" id="inputApellidos" placeholder="Introduce tus apellidos" formControlName="apellidos">
+    <div class="error" *ngIf="formPersonal.controls.apellidos.errors?.required && formPersonal.controls.apellidos.touched">
+      El campo apellidos es obligatorio
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEdad">Edad</label>
+    <input type="number" class="form-control" id="inputEdad" placeholder="Introduce tu edad" formControlName="edad">
+    <div class="error" *ngIf="formPersonal.controls.edad.errors?.required && formPersonal.controls.edad.touched">
+      El campo edad es obligatorio y debe ser un número
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail">Correo Electrónico</label>
+    <input type="text" class="form-control" id="inputEmail" placeholder="Introduce tu correo electrónico"
+      formControlName="email">
+    <div class="error" *ngIf="formPersonal.controls.email.errors?.required && formPersonal.controls.email.touched">
+      El campo email es obligatorio y debe estar correctamente formado
+    </div>
+  </div>
+  <button (click)="handleClickSiguiente()" class="btn btn-success float-right" [disabled]="!formPersonal.valid">Siguiente</button>
+</form>
